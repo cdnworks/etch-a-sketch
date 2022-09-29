@@ -10,11 +10,6 @@ function renderCanvas() {
 
     const canvas = document.querySelector('.canvas');
 
-
-
-
-
-
     //create a row, then in said row, appends squares, then append row
     for(let i = 1; i <= height; i ++) {
         let row = document.createElement('div');
@@ -31,3 +26,15 @@ function renderCanvas() {
 }
 
 renderCanvas();
+
+
+let canvasSquares = document.querySelectorAll('.square');
+
+//events
+canvasSquares.forEach((square) => {
+    square.addEventListener('mouseover', function(event) {
+        //do something to the square to indicate hover
+        console.log("OVER A SQUARE?");
+        //do something if the user has the mouse button down
+    });
+});

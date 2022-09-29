@@ -27,14 +27,18 @@ function renderCanvas() {
 
 renderCanvas();
 
+//testing vars
+let color = 'black';
 
 let canvasSquares = document.querySelectorAll('.square');
 
 //events
 canvasSquares.forEach((square) => {
     square.addEventListener('mouseover', function(event) {
-        //do something to the square to indicate hover
-        console.log("OVER A SQUARE?");
-        //do something if the user has the mouse button down
+        //on click
+        square.addEventListener('click', function(event) {
+            //do thing
+            square.style.backgroundColor = color;
+        });
     });
 });

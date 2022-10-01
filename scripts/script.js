@@ -35,10 +35,23 @@ let canvasSquares = document.querySelectorAll('.square');
 //events
 canvasSquares.forEach((square) => {
     square.addEventListener('mouseover', function(event) {
-        //on click
-        square.addEventListener('click', function(event) {
-            //do thing
+        //color preview
+        let originalColor = square.style.backgroundColor; //get the original color
+        square.style.backgroundColor = color; //color the square
+
+        //listen for mouse out
+        square.addEventListener('mouseout', function(e) {
+            //revert to the original color
+            square.style.backgroundColor = originalColor;
+        })
+
+        square.addEventListener('mousedown', function(event) {
+            //commit new color to the square, and 'originalColor'
+            originalColor = color;
             square.style.backgroundColor = color;
         });
+
+
     });
+
 });

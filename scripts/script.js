@@ -5,8 +5,8 @@ function renderCanvas() {
     //expansion idea: take some parameters that define the size of the canvas
     //where size is the resolution or number of squares on the canvas
 
-    let height = 16;
-    let width = 16;
+    let height = 32;
+    let width = 32;
 
     const canvas = document.querySelector('.canvas');
 

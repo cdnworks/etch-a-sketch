@@ -1,10 +1,12 @@
 function renderCanvas(h, w) {
+    //draws a square grid on screen composed of HTML divs, then defines 
+    //a  drawable area composed of the individual squares.
     let height = h;
     let width = w;
 
     const canvas = document.querySelector('.canvas');
 
-    //clear canvas area
+    //clear any pre-existing canvas elements
     canvas.textContent = '';
 
     //create a row, then in said row, appends squares, then append row
@@ -27,15 +29,16 @@ function renderCanvas(h, w) {
 
 
 function drawToCanvas(canvasSquares) {
+    //Defines the drawable area of the canvas
+    //Must be called whenever the canvas is updated via renderCanvas()
     let color = 'black';
-    //mouse events
+
     canvasSquares.forEach((square) => {
         square.addEventListener('mouseover', function(event) {
             //color preview
-            let originalColor = square.style.backgroundColor; //get the original color
-            square.style.backgroundColor = color; //color the square
+            let originalColor = square.style.backgroundColor;
+            square.style.backgroundColor = color;
 
-            //listen for mouse out
             square.addEventListener('mouseout', function(event) {
                 //revert to the original color
                 square.style.backgroundColor = originalColor;
@@ -52,9 +55,6 @@ function drawToCanvas(canvasSquares) {
 
 
 renderCanvas(8, 8);
-
-//event vars
-
 
 
 let slider = document.getElementById("resolution-slider");

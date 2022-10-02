@@ -1,10 +1,4 @@
 function renderCanvas(h, w) {
-    //create and place a grid of square divs
-    //these divs will be placed inside a container div, class="canvas"
-    
-    //expansion idea: take some parameters that define the size of the canvas
-    //where size is the resolution or number of squares on the canvas
-
     let height = h;
     let width = w;
 
@@ -26,9 +20,9 @@ function renderCanvas(h, w) {
         canvas.appendChild(row);
     }
 
+    //define drawable area and then set up event listeners
     let canvasSquares = document.querySelectorAll('.square');
     drawToCanvas(canvasSquares);
-
 }
 
 
@@ -52,10 +46,7 @@ function drawToCanvas(canvasSquares) {
                 originalColor = color;
                 square.style.backgroundColor = color;
             });
-
-
         });
-
     });
 }
 

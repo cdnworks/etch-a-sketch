@@ -36,7 +36,7 @@ function drawToCanvas(canvasSquares) {
             square.style.backgroundColor = color; //color the square
 
             //listen for mouse out
-            square.addEventListener('mouseout', function(e) {
+            square.addEventListener('mouseout', function(event) {
                 //revert to the original color
                 square.style.backgroundColor = originalColor;
             })

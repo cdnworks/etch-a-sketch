@@ -56,14 +56,22 @@ function drawToCanvas(canvasSquares) {
 
 renderCanvas(8, 8);
 
-
+//get and define controls
 let slider = document.getElementById("resolution-slider");
 let sliderInfo = document.getElementById("slider-info");
 sliderInfo.innerText = `${slider.value} x ${slider.value}`;
+
+let clearBtn = document.getElementById("clear-btn");
 
 //slider events
 slider.oninput = function() {
     sliderInfo.innerText = `${this.value} x ${this.value}`;
     let dimension = parseInt(this.value);
+    renderCanvas(dimension, dimension);
+}
+
+//button evens
+clearBtn.onclick = function() {
+    let dimension = parseInt(slider.value);
     renderCanvas(dimension, dimension);
 }

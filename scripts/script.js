@@ -25,15 +25,18 @@ function renderCanvas(h, w) {
 
     //define drawable area and then set up event listeners
     let canvasSquares = document.querySelectorAll('.square');
-    drawToCanvas(canvasSquares, "black");
+    let colorSelection = document.getElementById("color-picker");
+    colorSelection.value = "#000000";
+    drawToCanvas(canvasSquares);
 }
 
 
-function drawToCanvas(canvasSquares, colorSelected) {
+function drawToCanvas(canvasSquares) {
     //Defines the drawable area of the canvas
     //Must be called whenever the canvas is updated via renderCanvas()
 
-    let color = colorSelected;
+    let colorSelection = document.getElementById("color-picker");
+    let color = colorSelection.value;
 
     canvasSquares.forEach((square) => {
         square.addEventListener('mouseover', function(event) {
@@ -53,13 +56,10 @@ function drawToCanvas(canvasSquares, colorSelected) {
             });
         });
     });
-}
 
-
-function getColor() {
-    //sets and returns the target color for the cursor
-    //updated by selection of a checkbox
-
+    colorSelection.addEventListener('input', function(event) {
+        color = colorSelection.value;
+    });
 }
 
 
@@ -71,7 +71,6 @@ let sliderInfo = document.getElementById("slider-info");
 sliderInfo.innerText = `${slider.value} x ${slider.value}`;
 
 let clearBtn = document.getElementById("clear-btn");
-let gridBtn = document.getElementById("toggle-grid-btn");
 
 //slider events
 slider.oninput = function() {
@@ -85,10 +84,3 @@ clearBtn.onclick = function() {
     let dimension = parseInt(slider.value);
     renderCanvas(dimension, dimension);
 }
-
-//colorpicker
-let colorSelection = document.getElementById("color-picker");
-colorSelection.addEventListener('input', function(event) {
-    let canvasSquares = document.querySelectorAll('.square');
-    drawToCanvas(canvasSquares, colorSelection.value);
-});
